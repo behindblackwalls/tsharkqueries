@@ -1,0 +1,4 @@
+Sort by Port, decode hexadecimal:
+
+tshark -r traffic.pcapng -Y "tcp.port == 5555 || udp.port == 5555" -T fields -e data | \
+while read hex; do echo "$hex" | xxd -r -p; echo; done > output.txt
